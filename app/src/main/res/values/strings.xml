@@ -1,10 +1,22 @@
 <resources>
     <string name="app_name">Feira de Piadas</string>
+    <string name="piada_title">O Espantalho do Mose</string>
+    <string name="piada_text">O homem leva o filho ao pediatra:
+        - Sr. Dr., o meu filho completou seis meses e até hoje não abriu os olhos.....
+        - Abra os olhos você: esse garoto é filho de japonês!</string>
     <string-array name="spinner_gereno">
         <item>Masculino</item>
         <item>Feminino</item>
         <item>Prefiro não dizer</item>
     </string-array>
+
+    <string-array name="spinner_categorias">
+        <item>Animais</item>
+        <item>Corno</item>
+        <item>Médico</item>
+        <item>Joãozinho</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

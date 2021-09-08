@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -40,6 +44,25 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        ImageView imUser = findViewById(R.id.imUser);
+        imUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this, PerfilUserActivity.class);
+                startActivity(i);
+            }
+        });
+
+        ImageView imNotify = findViewById(R.id.imNotify);
+        imNotify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this, PublicarPiadaActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     void setFragment(Fragment fragment){
@@ -48,4 +71,6 @@ public class HomeActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+
 }

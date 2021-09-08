@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,11 +53,11 @@ public class  HomeViewFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        HomeActivityViewModel homeActivityViewModel = new ViewModelProvider(this).get(HomeActivityViewModel.class);
+        /*HomeActivityViewModel homeActivityViewModel = new ViewModelProvider(this).get(HomeActivityViewModel.class);
         HomeAdapter homeAdapter = new HomeAdapter(getContext());
         RecyclerView rv = getView().findViewById(R.id.rvHome);
         rv.setAdapter(homeAdapter);
-        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));*/
 
 
     }

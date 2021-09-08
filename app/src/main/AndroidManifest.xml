@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kaio">
-        <activity android:name=".PerfilActivity"></activity>
+        <activity android:name=".PublicarPiadaActivity"></activity>
+        <activity android:name=".PerfilUserActivity" />
+        <activity android:name=".PerfilActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">
