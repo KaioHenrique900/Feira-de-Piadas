@@ -142,7 +142,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:text="SchruteFarmer"
+        android:text="Kaio Henrique"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/imageView15"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
