@@ -23,6 +23,20 @@
 
     </string>
 
+    <string name="categoria1">Advogados</string>
+    <string name="categoria2">Animais</string>
+    <string name="categoria3">Bar</string>
+    <string name="categoria4">Bêbados</string>
+    <string name="categoria5">Caminhoneiros</string>
+    <string name="categoria6">Cornos</string>
+    <string name="categoria7">ladrões</string>
+    <string name="categoria8">Loucos</string>
+    <string name="categoria9">Médicos</string>
+    <string name="categoria10">Políticos</string>
+    <string name="categoria11">Sogras</string>
+    <string name="categoria12">Outros</string>
+
+
     <string-array name="spinner_gereno">
         <item>Masculino</item>
         <item>Feminino</item>

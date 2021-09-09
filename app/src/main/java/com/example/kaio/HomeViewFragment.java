@@ -13,6 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,7 +49,26 @@ public class  HomeViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_home_view, container, false);
+
+        TextView tvUserName = view.findViewById(R.id.tvUserName);
+        tvUserName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), PerfilActivity.class);
+                startActivity(i);
+            }
+        });
+
+        ImageButton btnPublicar = view.findViewById(R.id.btnPublicar);
+        btnPublicar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), PublicarPiadaActivity.class);
+                startActivity(i);
+            }
+        });
+        return view;
     }
 
     @Override

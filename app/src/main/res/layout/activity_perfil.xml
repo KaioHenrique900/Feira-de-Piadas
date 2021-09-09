@@ -31,7 +31,7 @@
         android:layout_height="0.8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtnVoltar1"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/imgBtnVoltar1"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"

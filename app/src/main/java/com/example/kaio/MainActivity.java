@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, PerfilActivity.class);
+                Intent i = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(i);
             }
         });

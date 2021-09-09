@@ -54,15 +54,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        ImageView imNotify = findViewById(R.id.imNotify);
-        imNotify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, PublicarPiadaActivity.class);
-                startActivity(i);
-            }
-        });
-
     }
 
     void setFragment(Fragment fragment){

@@ -3,8 +3,11 @@ package com.example.kaio;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -35,6 +38,14 @@ public class PerfilActivity extends AppCompatActivity {
                         break;
                 }
                 return true;
+            }
+        });
+        ImageButton imVoltar = findViewById(R.id.imgBtnVoltar1);
+        imVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(PerfilActivity.this, HomeActivity.class);
+                startActivity(i);
             }
         });
     }
