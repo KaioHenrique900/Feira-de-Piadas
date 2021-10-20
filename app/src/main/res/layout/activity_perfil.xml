@@ -7,6 +7,68 @@
     android:background="#FFA500"
     tools:context=".PerfilActivity">
 
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/piada_title"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMPiadas" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/piada_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_sentiment_satisfied_alt_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_share_24"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton7"
+        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_more_horiz_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btNav"
         android:layout_width="0dp"
@@ -22,7 +84,7 @@
         android:layout_height="0.8dp"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5"
+        app:layout_constraintTop_toBottomOf="@+id/imvBtnMore"
         tools:layout_editor_absoluteX="0dp" />
 
     <View
@@ -35,7 +97,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/tvPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -50,14 +112,11 @@
         android:id="@+id/imgBtnVoltar1"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:tint="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
 
     <ImageView
         android:id="@+id/imageView15"
@@ -71,7 +130,7 @@
         app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnSeguidores"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
@@ -83,18 +142,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView15" />
 
     <Button
-        android:id="@+id/button10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_200"
-        android:text="Últimas Piadas"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view7"
-        app:layout_constraintStart_toStartOf="@+id/view7"
-        app:layout_constraintTop_toTopOf="@+id/view7" />
-
-    <Button
-        android:id="@+id/button9"
+        android:id="@+id/btnSeguindo"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
@@ -102,11 +150,11 @@
         android:background="@color/purple_200"
         android:text="Seguindo 12"
         android:textSize="9sp"
-        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintStart_toEndOf="@+id/btnSeguidores"
         app:layout_constraintTop_toBottomOf="@+id/imageView15" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/switchSeguindo"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -117,53 +165,50 @@
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/imvBtnMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/tvSeguindo"
         app:srcCompat="@drawable/ic_baseline_more_horiz_24" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/tvSeguindo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Seguindo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        app:layout_constraintTop_toBottomOf="@+id/switchSeguindo" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/btnMPiadas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
         android:background="@color/purple_200"
         android:text="Melhores Piadas"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view7"
-        app:layout_constraintEnd_toEndOf="@+id/view7"
-        app:layout_constraintStart_toEndOf="@+id/button10"
-        app:layout_constraintTop_toTopOf="@+id/view7" />
-
-    <View
-        android:id="@+id/view7"
-        android:layout_width="300dp"
-        android:layout_height="87dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnUPiadas"
         app:layout_constraintTop_toBottomOf="@+id/view5" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/btnUPiadas"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:background="@color/purple_200"
+        android:text="Últimas Piadas"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnMPiadas"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view7" />
+        app:layout_constraintTop_toBottomOf="@+id/view5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

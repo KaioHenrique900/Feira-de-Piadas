@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -13,6 +14,9 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        EditText etDate = findViewById(R.id.etDateUp);
+        etDate.addTextChangedListener(Util.mask(etDate, "##/##/####"));
 
         Button btnCadastrar = findViewById(R.id.btnCadastrarUp);
         btnCadastrar.setOnClickListener(new View.OnClickListener() {

@@ -28,17 +28,6 @@
         app:srcCompat="@drawable/ic_baseline_account_circle_24"
         tools:ignore="VectorDrawableCompat" />
 
-    <ImageView
-        android:id="@+id/imNotify"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_notifications_24" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btNav"
         android:layout_width="0dp"
@@ -56,5 +45,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:text="Kaio Henrique"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imUser"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

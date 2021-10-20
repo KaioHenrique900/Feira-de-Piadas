@@ -8,7 +8,7 @@
     tools:context=".PublicarPiadaActivity">
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/etConteudoPiada"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
@@ -23,10 +23,10 @@
         app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCategorias" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tvTitlePublicar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -59,7 +59,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnCancelar" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etTituloPiada"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -72,10 +72,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitlePublicar" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinnerCategorias"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -85,11 +85,11 @@
         android:layout_marginRight="32dp"
         android:entries="@array/spinner_categorias"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toEndOf="@+id/tvCategoria"
+        app:layout_constraintTop_toBottomOf="@+id/etTituloPiada" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/tvCategoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -98,7 +98,7 @@
         android:layout_marginBottom="8dp"
         android:text="Categoria:"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/etConteudoPiada"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/etTituloPiada" />
 </androidx.constraintlayout.widget.ConstraintLayout>

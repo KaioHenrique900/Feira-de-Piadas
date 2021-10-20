@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         android:text="Sign Up"
         android:textColor="@color/white"
@@ -27,13 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Usuário"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/etEmailUp"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvUp" />
 
@@ -41,8 +40,6 @@
         android:id="@+id/etEmailUp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -50,8 +47,9 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUserUp" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/etUserUp"
+        app:layout_constraintTop_toBottomOf="@+id/tvUp" />
 
     <EditText
         android:id="@+id/etSenhaUp"
@@ -60,21 +58,18 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/etCSenhaUp"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailUp" />
+        app:layout_constraintTop_toBottomOf="@+id/etUserUp" />
 
     <EditText
         android:id="@+id/etCSenhaUp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -82,36 +77,35 @@
         android:hint="Confirme Sua Senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSenhaUp" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/etSenhaUp"
+        app:layout_constraintTop_toBottomOf="@+id/etEmailUp" />
 
     <TextView
         android:id="@+id/tvNascUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:text="Nascimento:"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/etDateUp"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGeneroUp" />
+        app:layout_constraintStart_toEndOf="@+id/spinnerGeneroUp"
+        app:layout_constraintTop_toBottomOf="@+id/etCSenhaUp" />
 
     <TextView
         android:id="@+id/tvGeneroUp"
         android:layout_width="126dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
         android:text="Gênero:"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/spinnerGeneroUp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCSenhaUp" />
+        app:layout_constraintTop_toBottomOf="@+id/etSenhaUp" />
 
     <Spinner
         android:id="@+id/spinnerGeneroUp"
@@ -119,10 +113,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:entries="@array/spinner_gereno"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvNascUp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvGeneroUp"
-        app:layout_constraintTop_toBottomOf="@+id/etCSenhaUp" />
+        app:layout_constraintTop_toBottomOf="@+id/etSenhaUp" />
 
     <Button
         android:id="@+id/btnCadastrarUp"
@@ -136,7 +130,6 @@
         android:text="Cadastrar"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDateUp" />
 
@@ -181,7 +174,6 @@
         android:layout_marginRight="8dp"
         android:text="ou"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCadastrarUp" />
 
@@ -189,14 +181,11 @@
         android:id="@+id/etDateUp"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvNascUp"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerGeneroUp" />
+        app:layout_constraintTop_toBottomOf="@+id/etCSenhaUp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
