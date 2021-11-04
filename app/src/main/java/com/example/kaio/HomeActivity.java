@@ -23,6 +23,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        HomeViewFragment homeViewFragment = new HomeViewFragment();
+        setFragment(homeViewFragment);
+
         bottomNavigationView = findViewById(R.id.btNav);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
