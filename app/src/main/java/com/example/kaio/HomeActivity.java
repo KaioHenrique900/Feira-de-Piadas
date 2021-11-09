@@ -9,11 +9,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.example.kaio.fragment.BibliotecaViewFragment;
+import com.example.kaio.fragment.HomeViewFragment;
+import com.example.kaio.fragment.TopPiadasViewFragment;
+import com.example.kaio.util.Util;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -22,6 +34,49 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        final String email = Config.getLogin(HomeActivity.this);
+        final String password = Config.getPassword(HomeActivity.this);
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_data.php", "GET", "UTF-8");
+                httpRequest.setBasicAuth(email, password);
+
+                try {
+                    InputStream is = httpRequest.execute();
+                    String result = Util.inputStream2String(is, "UTF-8");
+                    httpRequest.finish();
+
+                    JSONObject jsonObject = new JSONObject(result);
+                    final int success = jsonObject.getInt("success");
+                    if(success == 1) {
+                        final String webData = jsonObject.getString("data");
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                /*TextView tvWebData = findViewById(R.id.tvWebData);
+                                tvWebData.setText(webData);*/
+                            }
+                        });
+
+                    }
+                    else {
+                        final String error = jsonObject.getString("error");
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(HomeActivity.this, error, Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         HomeViewFragment homeViewFragment = new HomeViewFragment();
         setFragment(homeViewFragment);

@@ -1,4 +1,4 @@
-package com.example.kaio;
+package com.example.kaio.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;

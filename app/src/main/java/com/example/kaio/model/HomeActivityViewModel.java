@@ -1,4 +1,4 @@
-package com.example.kaio;
+package com.example.kaio.model;
 
 import androidx.lifecycle.ViewModel;
 
