@@ -12,6 +12,176 @@
         android:layout_height="match_parent"
         android:background="#FFA500">
 
+        <ImageView
+            android:id="@+id/imageView41"
+            android:layout_width="@dimen/categoria_bib"
+            android:layout_height="@dimen/categoria_bib"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView42"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView22"
+            app:srcCompat="@drawable/ic_baseline_source_24" />
+
+        <ImageView
+            android:id="@+id/imageView43"
+            android:layout_width="@dimen/categoria_bib"
+            android:layout_height="@dimen/categoria_bib"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView45"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView42"
+            app:layout_constraintTop_toBottomOf="@+id/textView41"
+            app:srcCompat="@drawable/ic_baseline_source_24" />
+
+        <ImageView
+            android:id="@+id/imageView45"
+            android:layout_width="@dimen/categoria_bib"
+            android:layout_height="@dimen/categoria_bib"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView43"
+            app:layout_constraintTop_toBottomOf="@+id/textView42"
+            app:srcCompat="@drawable/ic_baseline_source_24" />
+
+        <ImageView
+            android:id="@+id/imageView44"
+            android:layout_width="@dimen/categoria_bib"
+            android:layout_height="@dimen/categoria_bib"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView42"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView21"
+            app:layout_constraintTop_toBottomOf="@+id/textView15"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/ic_baseline_source_24" />
+
+        <TextView
+            android:id="@+id/textView59"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categoria20"
+            android:textSize="@dimen/font_bib"
+            app:layout_constraintEnd_toEndOf="@+id/imageView45"
+            app:layout_constraintStart_toStartOf="@+id/imageView45"
+            app:layout_constraintTop_toBottomOf="@+id/imageView45" />
+
+        <TextView
+            android:id="@+id/textView60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categoria19"
+            android:textSize="@dimen/font_bib"
+            app:layout_constraintEnd_toEndOf="@+id/imageView43"
+            app:layout_constraintStart_toStartOf="@+id/imageView43"
+            app:layout_constraintTop_toBottomOf="@+id/imageView43" />
+
+        <TextView
+            android:id="@+id/textView61"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categoria18"
+            android:textSize="@dimen/font_bib"
+            app:layout_constraintEnd_toEndOf="@+id/imageView42"
+            app:layout_constraintStart_toStartOf="@+id/imageView42"
+            app:layout_constraintTop_toBottomOf="@+id/imageView42" />
+
+        <TextView
+            android:id="@+id/textView62"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categoria17"
+            android:textSize="@dimen/font_bib"
+            app:layout_constraintEnd_toEndOf="@+id/imageView41"
+            app:layout_constraintStart_toStartOf="@+id/imageView41"
+            app:layout_constraintTop_toBottomOf="@+id/imageView41" />
+
+        <ImageView
+            android:id="@+id/imageView42"
+            android:layout_width="@dimen/categoria_bib"
+            android:layout_height="@dimen/categoria_bib"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView43"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView41"
+            app:layout_constraintTop_toBottomOf="@+id/textView40"
+            app:srcCompat="@drawable/ic_baseline_source_24" />
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="@dimen/categoria_bib"
+            android:layout_height="@dimen/categoria_bib"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView19"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19"
+            app:srcCompat="@drawable/ic_baseline_source_24" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categoria13"
+            android:textSize="@dimen/font_bib"
+            app:layout_constraintEnd_toEndOf="@+id/imageView20"
+            app:layout_constraintStart_toStartOf="@+id/imageView20"
+            app:layout_constraintTop_toBottomOf="@+id/imageView20" />
+
+        <TextView
+            android:id="@+id/textView40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categoria14"
+            android:textSize="@dimen/font_bib"
+            app:layout_constraintEnd_toEndOf="@+id/imageView19"
+            app:layout_constraintStart_toStartOf="@+id/imageView19"
+            app:layout_constraintTop_toBottomOf="@+id/imageView19" />
+
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="@dimen/categoria_bib"
+            android:layout_height="@dimen/categoria_bib"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView21"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView20"
+            app:layout_constraintTop_toBottomOf="@+id/textView20"
+            app:srcCompat="@drawable/ic_baseline_source_24" />
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categoria15"
+            android:textSize="@dimen/font_bib"
+            app:layout_constraintEnd_toEndOf="@+id/imageView21"
+            app:layout_constraintStart_toStartOf="@+id/imageView21"
+            app:layout_constraintTop_toBottomOf="@+id/imageView21" />
+
+        <TextView
+            android:id="@+id/textView42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categoria16"
+            android:textSize="@dimen/font_bib"
+            app:layout_constraintEnd_toEndOf="@+id/imageView44"
+            app:layout_constraintStart_toStartOf="@+id/imageView44"
+            app:layout_constraintTop_toBottomOf="@+id/imageView44" />
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="@dimen/categoria_bib"
+            android:layout_height="@dimen/categoria_bib"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView44"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView19"
+            app:layout_constraintTop_toBottomOf="@+id/textView18"
+            app:srcCompat="@drawable/ic_baseline_source_24" />
+
         <View
             android:id="@+id/view8"
             android:layout_width="match_parent"
@@ -25,74 +195,62 @@
             android:id="@+id/imageView2"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view8"
             app:srcCompat="@drawable/ic_baseline_source_24" />
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toStartOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/view8"
             app:srcCompat="@drawable/ic_baseline_source_24" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView8"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/view8"
             app:srcCompat="@drawable/ic_baseline_source_24" />
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="390dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view8" />
 
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView11"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
             app:srcCompat="@drawable/ic_baseline_source_24" />
 
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView7"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/view8"
             app:srcCompat="@drawable/ic_baseline_source_24" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/categoria6"
+            android:text="@string/categoria5"
             android:textSize="@dimen/font_bib"
             app:layout_constraintEnd_toEndOf="@+id/imageView7"
             app:layout_constraintStart_toStartOf="@+id/imageView7"
@@ -102,7 +260,7 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/categoria4"
+            android:text="@string/categoria6"
             android:textSize="@dimen/font_bib"
             app:layout_constraintEnd_toEndOf="@+id/imageView6"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
@@ -112,49 +270,51 @@
             android:id="@+id/imageView11"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView10"
-            app:layout_constraintStart_toEndOf="@+id/imageView9"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView9"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
             app:srcCompat="@drawable/ic_baseline_source_24" />
 
         <ImageView
             android:id="@+id/imageView14"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toStartOf="@+id/imageView13"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView12"
-            app:layout_constraintTop_toBottomOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
             app:srcCompat="@drawable/ic_baseline_source_24" />
 
         <ImageView
             android:id="@+id/imageView12"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/textView16"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
             app:srcCompat="@drawable/ic_baseline_source_24" />
 
         <ImageView
             android:id="@+id/imageView13"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/textView15"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView14"
+            app:layout_constraintTop_toBottomOf="@+id/textView17"
             app:srcCompat="@drawable/ic_baseline_source_24" />
 
         <TextView
             android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/categoria10"
+            android:text="@string/categoria9"
             android:textSize="@dimen/font_bib"
             app:layout_constraintEnd_toEndOf="@+id/imageView12"
             app:layout_constraintStart_toStartOf="@+id/imageView12"
@@ -164,7 +324,7 @@
             android:id="@+id/textView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/categoria11"
+            android:text="@string/categoria10"
             android:textSize="@dimen/font_bib"
             app:layout_constraintEnd_toEndOf="@+id/imageView14"
             app:layout_constraintStart_toStartOf="@+id/imageView14"
@@ -174,7 +334,7 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/categoria12"
+            android:text="@string/categoria11"
             android:textSize="@dimen/font_bib"
             app:layout_constraintEnd_toEndOf="@+id/imageView13"
             app:layout_constraintStart_toStartOf="@+id/imageView13"
@@ -184,29 +344,29 @@
             android:id="@+id/imageView9"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView11"
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
             app:srcCompat="@drawable/ic_baseline_source_24" />
 
         <ImageView
             android:id="@+id/imageView10"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView13"
+            app:layout_constraintTop_toBottomOf="@+id/textView16"
             app:srcCompat="@drawable/ic_baseline_source_24" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/categoria7"
+            android:text="@string/categoria8"
             android:textSize="@dimen/font_bib"
             app:layout_constraintEnd_toEndOf="@+id/imageView9"
             app:layout_constraintStart_toStartOf="@+id/imageView9"
@@ -216,7 +376,7 @@
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/categoria8"
+            android:text="@string/categoria7"
             android:textSize="@dimen/font_bib"
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/imageView11"
@@ -226,7 +386,7 @@
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/categoria9"
+            android:text="@string/categoria12"
             android:textSize="@dimen/font_bib"
             app:layout_constraintEnd_toEndOf="@+id/imageView10"
             app:layout_constraintStart_toStartOf="@+id/imageView10"
@@ -236,7 +396,7 @@
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/categoria5"
+            android:text="@string/categoria4"
             android:textSize="@dimen/font_bib"
             app:layout_constraintEnd_toEndOf="@+id/imageView8"
             app:layout_constraintStart_toStartOf="@+id/imageView8"
@@ -246,11 +406,11 @@
             android:id="@+id/imageView7"
             android:layout_width="@dimen/categoria_bib"
             android:layout_height="@dimen/categoria_bib"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
             app:srcCompat="@drawable/ic_baseline_source_24" />
 
         <TextView
