@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class Config {
-    static String SERVER_URL_BASE = "https://loginifes.herokuapp.com/";   //Link será alterado
+    static String SERVER_URL_BASE = "https://feira-de-piadas.herokuapp.com/";   //Link será alterado
 
     static void setLogin(Context context, String login){
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);

@@ -31,6 +31,8 @@ public class SignInActivity extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                v.setEnabled(false);
+
                 EditText etEmail = findViewById(R.id.etEmail);
                 final String email = etEmail.getText().toString();
 
@@ -69,7 +71,7 @@ public class SignInActivity extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         Toast.makeText(SignInActivity.this, error, Toast.LENGTH_LONG).show();
-
+                                        v.setEnabled(true);
                                     }
                                 });
                             }

@@ -50,7 +50,7 @@ public class  HomeViewFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_view, container, false);
 
-        TextView tvUserName = view.findViewById(R.id.tvUserName);
+        TextView tvUserName = view.findViewById(R.id.tvUserName1);
         tvUserName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

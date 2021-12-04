@@ -10,22 +10,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.kaio.fragment.BibliotecaViewFragment;
 import com.example.kaio.fragment.HomeViewFragment;
 import com.example.kaio.fragment.TopPiadasViewFragment;
-import com.example.kaio.util.Util;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -35,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        final String email = Config.getLogin(HomeActivity.this);
+        /*final String email = Config.getLogin(HomeActivity.this);
         final String password = Config.getPassword(HomeActivity.this);
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -58,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 /*TextView tvWebData = findViewById(R.id.tvWebData);
-                                tvWebData.setText(webData);*/
+                                tvWebData.setText(webData);
                             }
                         });
 
@@ -76,7 +65,7 @@ public class HomeActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
 
         HomeViewFragment homeViewFragment = new HomeViewFragment();
         setFragment(homeViewFragment);
