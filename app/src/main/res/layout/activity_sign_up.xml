@@ -97,31 +97,6 @@
         app:layout_constraintEnd_toStartOf="@+id/etDateUp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGeneroUp" />
-
-    <TextView
-        android:id="@+id/tvGeneroUp"
-        android:layout_width="126dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Gênero:"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/spinnerGeneroUp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCSenhaUp" />
-
-    <Spinner
-        android:id="@+id/spinnerGeneroUp"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:entries="@array/spinner_gereno"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvGeneroUp"
         app:layout_constraintTop_toBottomOf="@+id/etCSenhaUp" />
 
     <Button
@@ -197,6 +172,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvNascUp"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerGeneroUp" />
+        app:layout_constraintTop_toBottomOf="@+id/etCSenhaUp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

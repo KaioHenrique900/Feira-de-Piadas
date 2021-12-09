@@ -28,6 +28,7 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
         Button btnEntrar = findViewById(R.id.btnEntrar);
+        btnEntrar.setEnabled(true);
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
