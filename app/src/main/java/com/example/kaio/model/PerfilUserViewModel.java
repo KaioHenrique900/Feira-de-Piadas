@@ -1,4 +1,16 @@
 package com.example.kaio.model;
 
-public class PerfilUserViewModel {
+import androidx.lifecycle.ViewModel;
+
+import com.example.kaio.MyItemPiada;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PerfilUserViewModel extends ViewModel {
+    List<MyItemPiada> itens = new ArrayList<>();
+
+    public List<MyItemPiada> getItens() {
+        return itens;
+    }
 }

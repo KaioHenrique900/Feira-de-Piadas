@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="0px"
-    android:paddingBottom="0dp">
+    android:paddingTop="50px">
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/view6"
         android:layout_width="match_parent"
         android:layout_height="0.8dp"
         android:layout_marginTop="16dp"
@@ -17,44 +16,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLikeHome" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton13" />
 
     <TextView
-        android:id="@+id/tvUserHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:text="SchruteFarmer"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_baseline_account_circle_24"
-        android:tint="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvTitleHome"
+        android:id="@+id/tvTitlePerfilUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/piada_title"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUserHome" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvPiadaHome"
+        android:id="@+id/tvPiadaPerfilUser"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -66,44 +43,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleHome" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitlePerfilUser" />
 
     <ImageButton
-        android:id="@+id/btnLikeHome"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_baseline_sentiment_satisfied_alt_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPiadaHome" />
-
-    <ImageButton
-        android:id="@+id/btnShareHome"
+        android:id="@+id/imageButton13"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:background="@android:color/transparent"
-        android:src="@drawable/ic_baseline_share_24"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton12"
-        app:layout_constraintStart_toEndOf="@+id/btnLikeHome"
-        app:layout_constraintTop_toBottomOf="@+id/tvPiadaHome" />
+        android:src="@drawable/ic_baseline_sentiment_satisfied_alt_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPiadaPerfilUser" />
 
     <ImageButton
-        android:id="@+id/imageButton12"
+        android:id="@+id/imageButton14"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_share_24"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton15"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButton13"
+        app:layout_constraintTop_toBottomOf="@+id/tvPiadaPerfilUser" />
+
+    <ImageButton
+        android:id="@+id/imageButton15"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_baseline_more_horiz_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPiadaHome" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPiadaPerfilUser" />
 </androidx.constraintlayout.widget.ConstraintLayout>

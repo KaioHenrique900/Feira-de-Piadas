@@ -1,27 +1,7 @@
 <resources>
     <string name="app_name">Feira de Piadas</string>
-    <string name="piada_title">Abrindo o olho</string>
-    <string name="piada_text">O homem leva o filho ao pediatra:
-        - Sr. Dr., o meu filho completou seis meses e até hoje não abriu os olhos.....
-        - Abra os olhos você: esse garoto é filho de japonês!</string>
-
-    <string name="piada_title_2">Joãozinho desligado</string>
-    <string name="top_piada_1">Joãzinho voltando da escola chateado,
-        chega em casa para desabafar com sua mãe:
-        - Mãe, as outras crianças na escola me chamam de desligado.
-        A mãe então responde:
-        - Garoto, você mora na casa do lado.
-    </string>
-
-    <string name="piada_title_3">Dez dias de vida</string>
-    <string name="top_piada_2">O sujeito vai ao médico, que lhe diz:
-        - Tenho duas notícias, uma ruim e uma pior ainda.
-        - Qual a ruim, doutor?
-        - O resultado dos exames dizem que o senhor tem dez dias de vida
-        - Meu Deus! o que pode ser pior?
-        - Pois é, rapaz, sabe que estou com esses resultados faz uma semana e não conseguia te encontrar?
-
-    </string>
+    <string name="piada_title">Titulo da Piada</string>
+    <string name="piada_text">Conteudo da Piada</string>
 
     <string name="categoria1">Advogados</string>
     <string name="categoria2">Adivinhas</string>

@@ -1,5 +1,6 @@
 package com.example.kaio.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
+import com.example.kaio.PiadasCategoriaActivity;
+import com.example.kaio.PublicarPiadaActivity;
 import com.example.kaio.R;
+import com.example.kaio.model.PiadasCategoriaViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,6 +49,16 @@ public class BibliotecaViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_biblioteca_view, container, false);
+        View view =  inflater.inflate(R.layout.fragment_biblioteca_view, container, false);
+
+        ImageView imgCat6 = view.findViewById(R.id.imgCat6);
+        imgCat6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), PiadasCategoriaActivity.class);
+                startActivity(i);
+            }
+        });
+        return view;
     }
 }

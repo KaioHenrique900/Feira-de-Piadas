@@ -4,35 +4,50 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kaio.fragment.BibliotecaViewFragment;
 import com.example.kaio.fragment.HomeViewFragment;
 import com.example.kaio.fragment.TopPiadasViewFragment;
+import com.example.kaio.model.HomeViewModel;
+import com.example.kaio.util.Util;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class HomeActivity extends AppCompatActivity {
+    HomeAdapter homeAdapter;
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        /*final String email = Config.getLogin(HomeActivity.this);
+        final String email = Config.getLogin(HomeActivity.this);
         final String password = Config.getPassword(HomeActivity.this);
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_data.php", "GET", "UTF-8");
-                httpRequest.setBasicAuth(email, password);
+                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_data.php", "POST", "UTF-8");
+                httpRequest.addParam("email", Config.getLogin(HomeActivity.this));
 
                 try {
                     InputStream is = httpRequest.execute();
@@ -46,7 +61,7 @@ public class HomeActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                /*TextView tvWebData = findViewById(R.id.tvWebData);
+                                TextView tvWebData = findViewById(R.id.tvUserNameHome);
                                 tvWebData.setText(webData);
                             }
                         });
@@ -65,7 +80,7 @@ public class HomeActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });*/
+        });
 
         HomeViewFragment homeViewFragment = new HomeViewFragment();
         setFragment(homeViewFragment);
@@ -97,6 +112,26 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomeActivity.this, PerfilUserActivity.class);
+                startActivity(i);
+            }
+        });
+
+        TextView tvUserNameHome = findViewById(R.id.tvUserNameHome);
+        tvUserNameHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this, PerfilUserActivity.class);
+                startActivity(i);
+            }
+        });
+
+        ImageView imExit = findViewById(R.id.imExit);
+        imExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Config.setLogin(HomeActivity.this, "");
+                Config.setPassword(HomeActivity.this, "");
+                Intent i = new Intent(HomeActivity.this, SignInActivity.class);
                 startActivity(i);
             }
         });
