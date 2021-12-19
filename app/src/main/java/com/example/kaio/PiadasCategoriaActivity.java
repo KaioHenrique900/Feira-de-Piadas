@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.kaio.model.PerfilUserViewModel;
 import com.example.kaio.model.PiadasCategoriaViewModel;
@@ -30,6 +31,10 @@ public class PiadasCategoriaActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        Bundle extras = getIntent().getExtras();
+
+        TextView tvPCTitle = findViewById(R.id.tvPCTitle);
+        tvPCTitle.setText(extras.getString("nomeCategoria"));
 
         PiadasCategoriaViewModel vm = new ViewModelProvider(this).get(PiadasCategoriaViewModel.class);
         List<MyItemPiada> itens = vm.getItens();

@@ -2,4 +2,6 @@
 <resources>
     <dimen name="categoria_bib">60dp</dimen>
     <dimen name="font_bib">13sp</dimen>
+    <dimen name="b_icon_width">100dp</dimen>
+    <dimen name="b_icon_height">100dp</dimen>
 </resources>

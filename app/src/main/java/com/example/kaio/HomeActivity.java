@@ -125,17 +125,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        ImageView imExit = findViewById(R.id.imExit);
-        imExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Config.setLogin(HomeActivity.this, "");
-                Config.setPassword(HomeActivity.this, "");
-                Intent i = new Intent(HomeActivity.this, SignInActivity.class);
-                startActivity(i);
-            }
-        });
-
     }
 
     void setFragment(Fragment fragment){

@@ -141,7 +141,5 @@ public class  HomeViewFragment extends Fragment {
         RecyclerView rvHome = getActivity().findViewById(R.id.rvHome);
         rvHome.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvHome.setAdapter(homeAdapter);
-
-
     }
 }

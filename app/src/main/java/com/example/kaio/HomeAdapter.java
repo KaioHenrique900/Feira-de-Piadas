@@ -27,6 +27,7 @@ import java.util.concurrent.Executors;
 public class HomeAdapter extends RecyclerView.Adapter {
     Context context;
     List<MyItemPiada> itens;
+    public boolean LIKED = false;
     public HomeAdapter(Context context, List<MyItemPiada> itens){
         this.context = context;
         this.itens = itens;
@@ -77,9 +78,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
                                 ((HomeActivity)context).runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-
-                                        int color = Color.parseColor("#AE6118"); //The color u want
-                                        v.setBackgroundResource(R.drawable.ic_baseline_sentiment_satisfied_alt_24_clicked);
+                                        LIKED = true;
                                     }
                                 });
                             }
