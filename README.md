@@ -9,5 +9,6 @@ Projeto do Sistema (Tecnologias Utilizadas): https://docs.google.com/document/d/
 Road Map: https://docs.google.com/presentation/d/1OuJo1zx8L0zGMDYvoEpd_RO8_Plw3DBZd2CZiEtqmiE/edit?usp=sharing <br>
 Implementação do Banco de Dados: https://docs.google.com/presentation/d/1qw8xT6LhPFRQNJxC9UmmEZ_yUHzTjGP1cHL0AyZmKOQ/edit?usp=sharing <br>
 Lições Aprendidas (Kaio): https://docs.google.com/document/d/1B5qR-HJbE2_GjYiu99fwJOgxSriahjOmGLfF-BVK7u8/edit?usp=sharing <br>
+Plano de Testes: https://docs.google.com/spreadsheets/d/1Zq6arHTRYTD1ITmazdR9-hD3D0QWPoo7Tbwv9OONBrw/edit?usp=sharing <br>
 Sistema do Heroku: https://feira-de-piadas.herokuapp.com/ <br>
-Slides da Apresentação Final (esboço): https://docs.google.com/presentation/d/1sEGuw327MJtnT4KKmv1Ag-XlvP3DNGD7NqKmyWb8Dkc/edit?usp=sharing <br>
+Slides da Apresentação Final (esboço): https://docs.google.com/presentation/d/18vJeUOVEYCIZ9N2J_Uvx08LiweYIJzmewwCLjm8BKL8/edit?usp=sharing <br>
