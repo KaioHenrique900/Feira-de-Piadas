@@ -1,12 +1,13 @@
 package com.example.kaio;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,7 +58,34 @@ public class HomeAdapter extends RecyclerView.Adapter {
         TextView tvTitle = v.findViewById(R.id.tvTitleHome);
         tvTitle.setText(myItem.titulo);
 
-        holder.itemView.findViewById(R.id.btnLikeHome).setOnClickListener(new View.OnClickListener() {
+        holder.itemView.findViewById(R.id.tvUserHome).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, PerfilActivity.class);
+                i.setAction(Intent.ACTION_SEND);
+                i.putExtra("Username", myItem.user);
+                i.setType("text/plain");
+                context.startActivity(i);
+            }
+        });
+
+        holder.itemView.findViewById(R.id.btnShareHome).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_TEXT, myItem.titulo+"\n\n"+myItem.piada+"\n\n"+"Piada publicada por: "+myItem.user);
+                try {
+                    context.startActivity(i);   //Tento executar a intenteção
+                }
+                catch (ActivityNotFoundException e){    //Caso não haja um App de e-mail, emito uma mensagem de erro
+                    Toast.makeText(context, "Não há nenhuma aplicação de e-mail instalada.", Toast.LENGTH_SHORT);
+                }
+            }
+        });
+
+        ImageButton buttonLike = (ImageButton)holder.itemView.findViewById(R.id.btnLike);
+        buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -75,19 +103,29 @@ public class HomeAdapter extends RecyclerView.Adapter {
                             JSONObject jsonObject = new JSONObject(result);
                             final int success = jsonObject.getInt("success");
                             if(success == 1){
+                                final int like = jsonObject.getInt("like");
                                 ((HomeActivity)context).runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        LIKED = true;
+                                        if(like == 1){
+                                            buttonLike.setImageResource(R.drawable.ic_twotone_sentiment_satisfied_alt__clicked_24);
+                                            LIKED = true;
+                                        }
                                     }
                                 });
                             }
                             else{
                                 final String error = jsonObject.getString("error");
+                                final int like = jsonObject.getInt("like");
                                 ((HomeActivity)context).runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
                                         Toast.makeText(context, error, Toast.LENGTH_LONG).show();
+                                        if (like == 0){
+                                            buttonLike.setImageResource(R.drawable.ic_baseline_sentiment_satisfied_alt_24);
+                                            LIKED = false;
+                                        }
+
                                         v.setEnabled(true);
                                     }
                                 });

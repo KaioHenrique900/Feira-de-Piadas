@@ -25,17 +25,11 @@
     <string name="categoria20">Outros</string>
 
 
-    <string-array name="spinner_gereno">
-        <item>Masculino</item>
-        <item>Feminino</item>
-        <item>Prefiro não dizer</item>
+    <string-array name="spinner_user_perfil">
+        <item>Sair</item>
     </string-array>
 
     <string-array name="spinner_categorias">
-        <item>Animais</item>
-        <item>Corno</item>
-        <item>Médico</item>
-        <item>Joãozinho</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

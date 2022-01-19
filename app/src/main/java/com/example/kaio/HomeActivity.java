@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -27,13 +26,17 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class HomeActivity extends AppCompatActivity {
     HomeAdapter homeAdapter;
     BottomNavigationView bottomNavigationView;
+    String id_user;
+    String nome_user;
+    String email_user;
+    String senha_user;
+    String data_nasc_user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +61,13 @@ public class HomeActivity extends AppCompatActivity {
                     final int success = jsonObject.getInt("success");
                     if(success == 1) {
                         final String webData = jsonObject.getString("data");
+
+                        id_user = jsonObject.getString("id_usuario");
+                        nome_user = jsonObject.getString("nome");
+                        email_user = jsonObject.getString("email");
+                        senha_user = jsonObject.getString("senha");
+                        data_nasc_user = jsonObject.getString("data_nasc");
+
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -80,7 +90,10 @@ public class HomeActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+
         });
+
+        User user = new User(id_user, nome_user, email_user, senha_user, data_nasc_user);
 
         HomeViewFragment homeViewFragment = new HomeViewFragment();
         setFragment(homeViewFragment);

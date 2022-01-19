@@ -1,6 +1,8 @@
 package com.example.kaio;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.kaio.model.HomeViewModel;
 import com.example.kaio.model.PerfilUserViewModel;
 import com.example.kaio.model.PiadasCategoriaViewModel;
 
@@ -36,35 +39,21 @@ public class PiadasCategoriaActivity extends AppCompatActivity {
         TextView tvPCTitle = findViewById(R.id.tvPCTitle);
         tvPCTitle.setText(extras.getString("nomeCategoria"));
 
-        PiadasCategoriaViewModel vm = new ViewModelProvider(this).get(PiadasCategoriaViewModel.class);
-        List<MyItemPiada> itens = vm.getItens();
+        PiadasCategoriaViewModel piadasCategoriaViewModel = new ViewModelProvider(this).get(PiadasCategoriaViewModel.class);
+        piadasCategoriaViewModel.setCategoria(extras.getString("nomeCategoria"));
 
-        PiadasCategoriaAdapter piadasCategoriaAdapter = new PiadasCategoriaAdapter(this, itens);
-
-        MyItemPiada newPiada = new MyItemPiada();
-        newPiada.user = "Kaio";
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca djakfjakfjakfjakfjakfajkfjakfjakfjakfjakfjakfajkfajfka";
-
-        itens.add(newPiada);
-
-        newPiada = new MyItemPiada();
-        newPiada.user = "Kaio";
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca djakfjakfjakfjakfjakfajkfjakfjakfjakfjakfjakfajkfajfka";
-
-        itens.add(newPiada);
-
-        newPiada = new MyItemPiada();
-        newPiada.user = "Kaio";
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca djakfjakfjakfjakfjakfajkfjakfjakfjakfjakfjakfajkfajfka";
-
-        itens.add(newPiada);
-
-        piadasCategoriaAdapter.notifyItemInserted(itens.size()-1);
         RecyclerView rvPiadasCategoria = findViewById(R.id.rvPiadasCategoria);
+        rvPiadasCategoria.setHasFixedSize(true);
         rvPiadasCategoria.setLayoutManager(new LinearLayoutManager(this));
-        rvPiadasCategoria.setAdapter(piadasCategoriaAdapter);
+
+        LiveData<List<MyItemPiada>> piadas = piadasCategoriaViewModel.getPiadas();
+        piadas.observe(PiadasCategoriaActivity.this, new Observer<List<MyItemPiada>>() {
+            @Override
+            public void onChanged(List<MyItemPiada> piadas) {
+                PiadasCategoriaAdapter piadasCategoriaAdapter = new PiadasCategoriaAdapter(PiadasCategoriaActivity.this, piadas);
+                rvPiadasCategoria.setAdapter(piadasCategoriaAdapter);
+            }
+        });
+
     }
 }

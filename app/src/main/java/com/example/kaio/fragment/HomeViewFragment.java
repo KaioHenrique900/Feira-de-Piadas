@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,24 +15,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.kaio.Config;
-import com.example.kaio.HomeActivity;
 import com.example.kaio.HomeAdapter;
-import com.example.kaio.HttpRequest;
 import com.example.kaio.MyItemPiada;
-import com.example.kaio.PerfilActivity;
-import com.example.kaio.PerfilUserAdapter;
 import com.example.kaio.PublicarPiadaActivity;
 import com.example.kaio.R;
 import com.example.kaio.model.HomeViewModel;
-import com.example.kaio.model.PerfilUserViewModel;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -105,12 +97,7 @@ public class  HomeViewFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        HomeViewModel vm = new ViewModelProvider(this).get(HomeViewModel.class);
-        List<MyItemPiada> itens = vm.getItens();
-
-        HomeAdapter homeAdapter = new HomeAdapter(getActivity(), itens);
-
-        MyItemPiada newPiada = new MyItemPiada();
+        /*MyItemPiada newPiada = new MyItemPiada();
         newPiada.user = "kaio@gmail.com";
         newPiada.titulo = "Abre o olho";
         newPiada.piada = "O homem leva o filho ao pediatra:\\n\n" +
@@ -137,9 +124,20 @@ public class  HomeViewFragment extends Fragment {
 
         itens.add(newPiada);
 
-        homeAdapter.notifyItemInserted(itens.size()-1);
+        homeAdapter.notifyItemInserted(itens.size()-1);*/
         RecyclerView rvHome = getActivity().findViewById(R.id.rvHome);
+        rvHome.setHasFixedSize(true);
         rvHome.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rvHome.setAdapter(homeAdapter);
+
+        HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        LiveData<List<MyItemPiada>> piadas = homeViewModel.getPiadas();
+        piadas.observe(getActivity(), new Observer<List<MyItemPiada>>() {
+            @Override
+            public void onChanged(List<MyItemPiada> piadas) {
+                HomeAdapter homeAdapter = new HomeAdapter(getContext(), piadas);
+                rvHome.setAdapter(homeAdapter);
+            }
+        });
+
     }
 }

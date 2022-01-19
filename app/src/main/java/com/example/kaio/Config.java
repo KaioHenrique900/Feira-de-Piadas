@@ -3,8 +3,10 @@ package com.example.kaio;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.kaio.model.PerfilUserViewModel;
+
 public class Config {
-    static String SERVER_URL_BASE = "https://feira-de-piadas.herokuapp.com/";
+    public static String SERVER_URL_BASE = "https://feira-de-piadas.herokuapp.com/";
 
     static void setLogin(Context context, String login){
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
@@ -27,4 +29,5 @@ public class Config {
         SharedPreferences mPrefs = context.getSharedPreferences("config", 0);
         return mPrefs.getString("password", "");
     }
+
 }

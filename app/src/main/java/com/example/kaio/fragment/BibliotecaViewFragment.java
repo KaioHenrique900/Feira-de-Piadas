@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -79,7 +81,7 @@ public class BibliotecaViewFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        BibliotecaViewModel vm = new ViewModelProvider(this).get(BibliotecaViewModel.class);
+        /*BibliotecaViewModel vm = new ViewModelProvider(this).get(BibliotecaViewModel.class);
         List<MyItemBiblioteca> itens = vm.getItens();
         BibliotecaAdapter bibliotecaAdapter = new BibliotecaAdapter(getActivity(), itens);
 
@@ -181,14 +183,26 @@ public class BibliotecaViewFragment extends Fragment {
         newCategoria = new MyItemBiblioteca();
 
         newCategoria.nomeCategoria = getResources().getString(R.string.categoria20);
-        itens.add(newCategoria);
+        itens.add(newCategoria); */
+
+        RecyclerView rvBiblioteca = getActivity().findViewById(R.id.rvBiblioteca);
+        rvBiblioteca.setHasFixedSize(true);
 
         float w = getResources().getDimension(R.dimen.b_icon_width);
         int nColumns = Util.calculateNoOfColumns(getContext(), w);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), nColumns);
 
-        RecyclerView rvBiblioteca = getActivity().findViewById(R.id.rvBiblioteca);
-        rvBiblioteca.setAdapter(bibliotecaAdapter);
         rvBiblioteca.setLayoutManager(gridLayoutManager);
+
+        BibliotecaViewModel bibliotecaViewModel = new ViewModelProvider(this).get(BibliotecaViewModel.class);
+        LiveData<List<MyItemBiblioteca>> categorias = bibliotecaViewModel.getCategorias();
+        categorias.observe(getActivity(), new Observer<List<MyItemBiblioteca>>() {
+            @Override
+            public void onChanged(List<MyItemBiblioteca> categorias) {
+                BibliotecaAdapter bibliotecaAdapter = new BibliotecaAdapter(getContext(), categorias);
+                rvBiblioteca.setAdapter(bibliotecaAdapter);
+            }
+        });
+
     }
 }

@@ -1,6 +1,8 @@
 package com.example.kaio;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,6 +30,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class PerfilUserActivity extends AppCompatActivity {
+
+    String id_user;
+    String nome_user;
+    String email_user;
+    String senha_user;
+    String data_nasc_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +78,12 @@ public class PerfilUserActivity extends AppCompatActivity {
                     final int success = jsonObject.getInt("success");
                     if(success == 1) {
                         final String webData = jsonObject.getString("data");
+
+                        id_user = jsonObject.getString("id_usuario");
+                        nome_user = jsonObject.getString("nome");
+                        email_user = jsonObject.getString("email");
+                        senha_user = jsonObject.getString("senha");
+                        data_nasc_user = jsonObject.getString("data_nasc");
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -94,32 +108,22 @@ public class PerfilUserActivity extends AppCompatActivity {
             }
         });
 
+        User user = new User(id_user, nome_user, email_user, senha_user, data_nasc_user);
+
         PerfilUserViewModel vm = new ViewModelProvider(this).get(PerfilUserViewModel.class);
         List<MyItemPiada> itens = vm.getItens();
+        vm.setUser(user);
 
-        PerfilUserAdapter perfilUserAdapter = new PerfilUserAdapter(this, itens);
-
-        perfilUserAdapter = new PerfilUserAdapter(this, itens);
-
-        MyItemPiada newPiada = new MyItemPiada();
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca djakfjakfjakfjakfjakfajkfjakfjakfjakfjakfjakfajkfajfka";
-
-        itens.add(newPiada);
-
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca fajfkajfkajfkajfkafjakfjafkjakajfkajakfjakafjakajfkajakj";
-
-        itens.add(newPiada);
-
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca fajfkajfkajfkajfkafjakfjafkjakajfkajakfjakafjakajfkajakj";
-
-        itens.add(newPiada);
-
-        perfilUserAdapter.notifyItemInserted(itens.size()-1);
         RecyclerView rvPerfilUser = findViewById(R.id.rvPerfilUser);
         rvPerfilUser.setLayoutManager(new LinearLayoutManager(this));
-        rvPerfilUser.setAdapter(perfilUserAdapter);
+
+        LiveData<List<MyItemPiada>> piadas = vm.getPiadas();
+        piadas.observe(PerfilUserActivity.this, new Observer<List<MyItemPiada>>() {
+            @Override
+            public void onChanged(List<MyItemPiada> piadas) {
+                PerfilUserAdapter perfilUserAdapter = new PerfilUserAdapter(PerfilUserActivity.this, piadas);
+                rvPerfilUser.setAdapter(perfilUserAdapter);
+            }
+        });
     }
 }

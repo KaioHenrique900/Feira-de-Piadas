@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.kaio.model.PerfilUserViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -47,6 +48,11 @@ public class PerfilActivity extends AppCompatActivity {
             }
         });
 
+        Bundle extras = getIntent().getExtras();
+
+        TextView tvPerfil = findViewById(R.id.tvPerfil);
+        tvPerfil.setText(extras.getString("Username"));
+
         PerfilUserViewModel vm = new ViewModelProvider(this).get(PerfilUserViewModel.class);
         List<MyItemPiada> itens = vm.getItens();
 
@@ -69,9 +75,9 @@ public class PerfilActivity extends AppCompatActivity {
         itens.add(newPiada);
 
         perfilUserAdapter.notifyItemInserted(itens.size()-1);
-        RecyclerView rvPerfilUser = findViewById(R.id.rvPerfilUser);
-        rvPerfilUser.setLayoutManager(new LinearLayoutManager(this));
-        rvPerfilUser.setAdapter(perfilUserAdapter);
+        RecyclerView rvPerfil = findViewById(R.id.rvPerfil);
+        rvPerfil.setLayoutManager(new LinearLayoutManager(this));
+        rvPerfil.setAdapter(perfilUserAdapter);
 
         ImageButton imVoltar = findViewById(R.id.imgBtnVoltar1);
         imVoltar.setOnClickListener(new View.OnClickListener() {

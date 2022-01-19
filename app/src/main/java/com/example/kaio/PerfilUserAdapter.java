@@ -14,6 +14,7 @@ import java.util.List;
 public class PerfilUserAdapter extends RecyclerView.Adapter {
     Context context;
     List<MyItemPiada> itens;
+    String uid;
     public PerfilUserAdapter(Context context, List<MyItemPiada> itens){
         this.context = context;
         this.itens = itens;
@@ -30,7 +31,9 @@ public class PerfilUserAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        MyItemPiada myItem = itens.get(position);
+        MyItemPiada myItem = this.itens.get(position);
+
+        this.uid = myItem.uid;
 
         View v = holder.itemView;
 
