@@ -26,11 +26,17 @@ import java.util.concurrent.Executors;
 public class HomeViewModel extends ViewModel {
     List<MyItemPiada> itens = new ArrayList<>();
     User user;
+    String uid;
 
     MutableLiveData<List<MyItemPiada>> piadas;  //mutable lvedata é um livedata que se pode alterar
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public void setUid(String uid) {
+        this.uid = "18";
+
     }
 
     public User getUser() {
@@ -62,6 +68,7 @@ public class HomeViewModel extends ViewModel {
 
                 List<MyItemPiada> piadasList = new ArrayList<>();
                 HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_all_piadas.php", "GET", "UTF-8");  //url deve ser alterada
+                httpRequest.addParam("id_usuario", uid);
 
                 try {
                     InputStream is = httpRequest.execute();   //IntputStrem é um fluxo de dados"
@@ -83,6 +90,7 @@ public class HomeViewModel extends ViewModel {
                             String descricao = jPiada.getString("descricao");
                             String data_publicacao = jPiada.getString("data_publicacao");
                             String nome_usuario = jPiada.getString("nome_usuario");
+                            int curtida = jPiada.getInt("curtida");
 
                             MyItemPiada piada = new MyItemPiada();
                             piada.piada = descricao;
@@ -91,6 +99,7 @@ public class HomeViewModel extends ViewModel {
                             piada.titulo = titulo;
                             piada.data_publicacao = data_publicacao;
                             piada.user = nome_usuario;
+                            piada.liked = curtida;
 
                             piadasList.add(piada);  //min:35
                         }

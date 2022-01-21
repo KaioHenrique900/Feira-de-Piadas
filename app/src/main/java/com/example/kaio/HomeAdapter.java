@@ -1,5 +1,6 @@
 package com.example.kaio;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kaio.model.HomeViewModel;
 import com.example.kaio.util.Util;
 
 import org.json.JSONException;
@@ -28,7 +31,7 @@ import java.util.concurrent.Executors;
 public class HomeAdapter extends RecyclerView.Adapter {
     Context context;
     List<MyItemPiada> itens;
-    public boolean LIKED = false;
+    public int LIKED = 0;
     public HomeAdapter(Context context, List<MyItemPiada> itens){
         this.context = context;
         this.itens = itens;
@@ -58,6 +61,14 @@ public class HomeAdapter extends RecyclerView.Adapter {
         TextView tvTitle = v.findViewById(R.id.tvTitleHome);
         tvTitle.setText(myItem.titulo);
 
+        ImageButton buttonLike = v.findViewById(R.id.btnLike);
+        if (myItem.liked == 1){
+            buttonLike.setImageResource(R.drawable.ic_twotone_sentiment_satisfied_alt__clicked_24);
+        }
+        else{
+            buttonLike.setImageResource(R.drawable.ic_baseline_sentiment_satisfied_alt_24);
+        }
+
         holder.itemView.findViewById(R.id.tvUserHome).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +95,8 @@ public class HomeAdapter extends RecyclerView.Adapter {
             }
         });
 
-        ImageButton buttonLike = (ImageButton)holder.itemView.findViewById(R.id.btnLike);
+        buttonLike = (ImageButton)holder.itemView.findViewById(R.id.btnLike);
+        ImageButton finalButtonLike = buttonLike;
         buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,16 +116,22 @@ public class HomeAdapter extends RecyclerView.Adapter {
                             final int success = jsonObject.getInt("success");
                             if(success == 1){
                                 final int like = jsonObject.getInt("like");
-                                ((HomeActivity)context).runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        if(like == 1){
-                                            buttonLike.setImageResource(R.drawable.ic_twotone_sentiment_satisfied_alt__clicked_24);
-                                            LIKED = true;
-                                        }
-                                    }
+
+
+                                ((Activity)context).runOnUiThread(new Runnable() {
+                                     @Override
+                                     public void run() {
+                                         if (like == 1) {
+                                             finalButtonLike.setImageResource(R.drawable.ic_twotone_sentiment_satisfied_alt__clicked_24);
+                                         } else {
+                                             finalButtonLike.setImageResource(R.drawable.ic_baseline_sentiment_satisfied_alt_24);
+
+                                         }
+                                     }
                                 });
+
                             }
+
                             else{
                                 final String error = jsonObject.getString("error");
                                 final int like = jsonObject.getInt("like");
@@ -121,10 +139,6 @@ public class HomeAdapter extends RecyclerView.Adapter {
                                     @Override
                                     public void run() {
                                         Toast.makeText(context, error, Toast.LENGTH_LONG).show();
-                                        if (like == 0){
-                                            buttonLike.setImageResource(R.drawable.ic_baseline_sentiment_satisfied_alt_24);
-                                            LIKED = false;
-                                        }
 
                                         v.setEnabled(true);
                                     }
@@ -143,4 +157,5 @@ public class HomeAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return itens.size();
     }
+
 }

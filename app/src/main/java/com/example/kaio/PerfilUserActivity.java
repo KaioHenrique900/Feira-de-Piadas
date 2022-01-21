@@ -1,7 +1,9 @@
 package com.example.kaio;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,9 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,11 +36,7 @@ import java.util.concurrent.Executors;
 
 public class PerfilUserActivity extends AppCompatActivity {
 
-    String id_user;
-    String nome_user;
-    String email_user;
-    String senha_user;
-    String data_nasc_user;
+    String uid = "2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,28 @@ public class PerfilUserActivity extends AppCompatActivity {
             }
         });
 
+        Spinner sUserOptions = findViewById(R.id.spinnerUserOptions);
+        sUserOptions.setSelection(-1);
+        sUserOptions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1){
+                    Config.setLogin(PerfilUserActivity.this, "");
+                    Config.setPassword(PerfilUserActivity.this, "");
+                    Intent i = new Intent(PerfilUserActivity.this, SignInActivity.class);
+                    startActivity(i);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(new Runnable() {
             @Override
@@ -79,16 +102,22 @@ public class PerfilUserActivity extends AppCompatActivity {
                     if(success == 1) {
                         final String webData = jsonObject.getString("data");
 
-                        id_user = jsonObject.getString("id_usuario");
-                        nome_user = jsonObject.getString("nome");
-                        email_user = jsonObject.getString("email");
-                        senha_user = jsonObject.getString("senha");
-                        data_nasc_user = jsonObject.getString("data_nasc");
+                        final String id_user = jsonObject.getString("id_usuario");
+                        final String nome_user = jsonObject.getString("nome");
+                        final String email_user = jsonObject.getString("email");
+                        final String senha_user = jsonObject.getString("senha");
+                        final String data_nasc_user = jsonObject.getString("data_nasc");
+
+                        User user = new User(id_user, nome_user, email_user, senha_user, data_nasc_user);
+
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 TextView tvWebData = findViewById(R.id.tvUserPerfil);
                                 tvWebData.setText(webData);
+
+                                TextView tvUid = findViewById(R.id.tvUid);
+                                tvUid.setText(id_user);
                             }
                         });
 
@@ -108,11 +137,11 @@ public class PerfilUserActivity extends AppCompatActivity {
             }
         });
 
-        User user = new User(id_user, nome_user, email_user, senha_user, data_nasc_user);
+        PerfilUserViewModel vm = new ViewModelProvider(PerfilUserActivity.this).get(PerfilUserViewModel.class);
 
-        PerfilUserViewModel vm = new ViewModelProvider(this).get(PerfilUserViewModel.class);
+        vm.setUid(uid);
+
         List<MyItemPiada> itens = vm.getItens();
-        vm.setUser(user);
 
         RecyclerView rvPerfilUser = findViewById(R.id.rvPerfilUser);
         rvPerfilUser.setLayoutManager(new LinearLayoutManager(this));

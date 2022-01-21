@@ -14,6 +14,17 @@ public class Config {
         mEditor.putString("login", login).commit();
     }
 
+    static void setUid(Context context, String uid){
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putString("uid", uid).commit();
+    }
+
+    public static String getUid(Context context){
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        return mPrefs.getString("uid", "");
+    }
+
     public static String getLogin(Context context){
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
         return mPrefs.getString("login", "");

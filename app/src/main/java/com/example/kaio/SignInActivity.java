@@ -55,11 +55,20 @@ public class SignInActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(result);
                             final int success = jsonObject.getInt("success");
                             if(success == 1){
+                                String uid = null;
+                                try {
+                                    uid = jsonObject.getString("uid");
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                String finalUid = uid;
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
+
                                         Config.setLogin(SignInActivity.this, email);
                                         Config.setPassword(SignInActivity.this, password);
+                                        Config.setUid(SignInActivity.this, finalUid);
                                         Toast.makeText(SignInActivity.this, "Login realizado", Toast.LENGTH_LONG).show();
                                         Intent i = new Intent(SignInActivity.this, HomeActivity.class);
                                         startActivity(i);

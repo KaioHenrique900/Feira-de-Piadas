@@ -1,10 +1,13 @@
 package com.example.kaio.model;
 
+import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -22,6 +25,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -32,7 +36,7 @@ public class PerfilUserViewModel  extends ViewModel {
 
     String uid;
 
-    User user;
+    MutableLiveData<User> user;
 
     MutableLiveData<List<MyItemPiada>> piadas;  //mutable lvedata é um livedata que se pode alterar
 
@@ -40,8 +44,14 @@ public class PerfilUserViewModel  extends ViewModel {
         this.uid = uid;
     }*/
 
-    public void setUser(User user) {
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public void setUser(MutableLiveData<User> user) {
         this.user = user;
+
+
     }
 
     public LiveData<List<MyItemPiada>> getPiadas(){
@@ -64,12 +74,12 @@ public class PerfilUserViewModel  extends ViewModel {
     void loadPiadas(){
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(new Runnable() {
+
             @Override
             public void run() {
-
                 List<MyItemPiada> piadasList = new ArrayList<>();
                 HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_user_piadas.php", "POST", "UTF-8");  //url deve ser alterada
-                httpRequest.addParam("uid", "1");
+                httpRequest.addParam("uid", uid);
 
                 try {
                     InputStream is = httpRequest.execute();   //IntputStrem é um fluxo de dados"

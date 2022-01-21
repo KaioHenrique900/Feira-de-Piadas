@@ -1,9 +1,12 @@
 package com.example.kaio.fragment;
 
 import android.content.Intent;
+import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
@@ -16,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.kaio.Config;
 import com.example.kaio.HomeAdapter;
 import com.example.kaio.MyItemPiada;
 import com.example.kaio.PublicarPiadaActivity;
@@ -30,7 +34,7 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class  HomeViewFragment extends Fragment {
-
+    int LIKED;
     public HomeViewFragment() {
         // Required empty public constructor
     }
@@ -80,8 +84,6 @@ public class  HomeViewFragment extends Fragment {
             }
         });*/
 
-
-
         ImageButton btnPublicar = view.findViewById(R.id.btnPublicar);
         btnPublicar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +95,7 @@ public class  HomeViewFragment extends Fragment {
         return view;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -130,6 +133,7 @@ public class  HomeViewFragment extends Fragment {
         rvHome.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        homeViewModel.setUid(Config.getUid(getActivity()));
         LiveData<List<MyItemPiada>> piadas = homeViewModel.getPiadas();
         piadas.observe(getActivity(), new Observer<List<MyItemPiada>>() {
             @Override
@@ -139,5 +143,7 @@ public class  HomeViewFragment extends Fragment {
             }
         });
 
+
     }
+
 }

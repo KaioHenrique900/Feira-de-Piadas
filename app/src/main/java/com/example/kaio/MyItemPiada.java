@@ -10,4 +10,5 @@ public class MyItemPiada {
     public String titulo;
     public String position;
     public String data_publicacao;
+    public int liked;
 }
