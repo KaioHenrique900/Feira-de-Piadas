@@ -64,6 +64,30 @@ public class PublicarPiadaActivity extends AppCompatActivity {
 
                             categoriasList.add(descricao);
                         }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(PublicarPiadaActivity.this, android.R.layout.simple_spinner_item, categoriasList);
+                                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                arrayAdapter.setNotifyOnChange(true);
+                                arrayAdapter.notifyDataSetChanged();
+                                spinnerCategorias.setAdapter(arrayAdapter);
+                                spinnerCategorias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    @Override
+                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                                        String itemString = arrayAdapter.getItem(position);
+
+                                        // Showing selected spinner item
+                                        Toast.makeText(PublicarPiadaActivity.this, "Categoria selecionada : " + itemString, Toast.LENGTH_LONG).show();
+                                    }
+                                    @Override
+                                    public void onNothingSelected(AdapterView <?> parent) {
+                                    }
+                                });
+                            }
+                        });
+
                     }
                 } catch (IOException | JSONException e) {
                     e.printStackTrace();
@@ -71,25 +95,10 @@ public class PublicarPiadaActivity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categoriasList);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        arrayAdapter.setNotifyOnChange(true);
-        arrayAdapter.notifyDataSetChanged();
 
-        spinnerCategorias.setAdapter(arrayAdapter);
-        spinnerCategorias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                String itemString = arrayAdapter.getItem(position);
 
-                // Showing selected spinner item
-                Toast.makeText(PublicarPiadaActivity.this, "Categoria selecionada : " + itemString, Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView <?> parent) {
-            }
-        });
+
 
         Button btnPublicar = findViewById(R.id.btnPublicar2);
         btnPublicar.setOnClickListener(new View.OnClickListener() {

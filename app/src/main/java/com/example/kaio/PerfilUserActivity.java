@@ -116,8 +116,6 @@ public class PerfilUserActivity extends AppCompatActivity {
                                 TextView tvWebData = findViewById(R.id.tvUserPerfil);
                                 tvWebData.setText(webData);
 
-                                TextView tvUid = findViewById(R.id.tvUid);
-                                tvUid.setText(id_user);
                             }
                         });
 

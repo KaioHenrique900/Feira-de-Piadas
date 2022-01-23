@@ -32,6 +32,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
     Context context;
     List<MyItemPiada> itens;
     public int LIKED = 0;
+
     public HomeAdapter(Context context, List<MyItemPiada> itens){
         this.context = context;
         this.itens = itens;

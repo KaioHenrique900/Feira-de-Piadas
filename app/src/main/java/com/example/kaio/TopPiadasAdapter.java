@@ -44,7 +44,7 @@ public class TopPiadasAdapter extends RecyclerView.Adapter{
         tvUser.setText(myItem.user);
 
         TextView tvPiadaPosition = v.findViewById(R.id.tvPiadaPosition);
-        tvPiadaPosition.setText(myItem.position);
+        tvPiadaPosition.setText(Integer.toString(position+1)+".");
     }
 
     @Override

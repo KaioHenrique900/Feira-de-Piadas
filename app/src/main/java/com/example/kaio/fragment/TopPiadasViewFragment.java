@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.kaio.Config;
 import com.example.kaio.HomeAdapter;
 import com.example.kaio.MyItemPiada;
 import com.example.kaio.R;
@@ -59,7 +62,7 @@ public class TopPiadasViewFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        /*
         TopPiadasViewModel vm = new ViewModelProvider(this).get(TopPiadasViewModel.class);
         List<MyItemPiada> itens = vm.getItens();
 
@@ -92,7 +95,21 @@ public class TopPiadasViewFragment extends Fragment {
         topPiadasAdapter.notifyItemInserted(itens.size()-1);
         RecyclerView rvTopPiadas = getActivity().findViewById(R.id.rvTopPiadas);
         rvTopPiadas.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rvTopPiadas.setAdapter(topPiadasAdapter);
+        rvTopPiadas.setAdapter(topPiadasAdapter);*/
+
+        RecyclerView rvTopPiadas = getActivity().findViewById(R.id.rvTopPiadas);
+        rvTopPiadas.setHasFixedSize(true);
+        rvTopPiadas.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        TopPiadasViewModel topPiadasViewModel = new ViewModelProvider(this).get(TopPiadasViewModel.class);
+        LiveData<List<MyItemPiada>> piadas = topPiadasViewModel.getPiadas();
+        piadas.observe(getActivity(), new Observer<List<MyItemPiada>>() {
+            @Override
+            public void onChanged(List<MyItemPiada> piadas) {
+                TopPiadasAdapter topPiadasAdapter = new TopPiadasAdapter(getContext(), piadas);
+                rvTopPiadas.setAdapter(topPiadasAdapter);
+            }
+        });
 
 
     }
