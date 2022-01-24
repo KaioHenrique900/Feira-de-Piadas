@@ -32,11 +32,6 @@ import java.util.concurrent.Executors;
 public class HomeActivity extends AppCompatActivity {
     HomeAdapter homeAdapter;
     BottomNavigationView bottomNavigationView;
-    String id_user;
-    String nome_user;
-    String email_user;
-    String senha_user;
-    String data_nasc_user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,11 +57,11 @@ public class HomeActivity extends AppCompatActivity {
                     if(success == 1) {
                         final String webData = jsonObject.getString("data");
 
-                        id_user = jsonObject.getString("id_usuario");
-                        nome_user = jsonObject.getString("nome");
-                        email_user = jsonObject.getString("email");
-                        senha_user = jsonObject.getString("senha");
-                        data_nasc_user = jsonObject.getString("data_nasc");
+                        final String id_user = jsonObject.getString("id_usuario");
+                        final String nome_user = jsonObject.getString("nome");
+                        final String email_user = jsonObject.getString("email");
+                        final String senha_user = jsonObject.getString("senha");
+                        final String data_nasc_user = jsonObject.getString("data_nasc");
 
                         runOnUiThread(new Runnable() {
                             @Override
@@ -93,7 +88,6 @@ public class HomeActivity extends AppCompatActivity {
 
         });
 
-        User user = new User(id_user, nome_user, email_user, senha_user, data_nasc_user);
 
         HomeViewFragment homeViewFragment = new HomeViewFragment();
         setFragment(homeViewFragment);

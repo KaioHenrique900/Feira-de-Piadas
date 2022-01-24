@@ -78,8 +78,6 @@ public class PublicarPiadaActivity extends AppCompatActivity {
 
                                         String itemString = arrayAdapter.getItem(position);
 
-                                        // Showing selected spinner item
-                                        Toast.makeText(PublicarPiadaActivity.this, "Categoria selecionada : " + itemString, Toast.LENGTH_LONG).show();
                                     }
                                     @Override
                                     public void onNothingSelected(AdapterView <?> parent) {

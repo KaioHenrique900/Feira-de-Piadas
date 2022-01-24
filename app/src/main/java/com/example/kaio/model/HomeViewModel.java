@@ -35,7 +35,7 @@ public class HomeViewModel extends ViewModel {
     }
 
     public void setUid(String uid) {
-        this.uid = "18";
+        this.uid = uid;
 
     }
 

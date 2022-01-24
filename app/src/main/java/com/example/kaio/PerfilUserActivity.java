@@ -36,7 +36,7 @@ import java.util.concurrent.Executors;
 
 public class PerfilUserActivity extends AppCompatActivity {
 
-    String uid = "2";
+    //String uid = "2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +116,24 @@ public class PerfilUserActivity extends AppCompatActivity {
                                 TextView tvWebData = findViewById(R.id.tvUserPerfil);
                                 tvWebData.setText(webData);
 
+                                PerfilUserViewModel vm = new ViewModelProvider(PerfilUserActivity.this).get(PerfilUserViewModel.class);
+
+                                vm.setUid(id_user);
+
+                                List<MyItemPiada> itens = vm.getItens();
+
+                                RecyclerView rvPerfilUser = findViewById(R.id.rvPerfilUser);
+                                rvPerfilUser.setLayoutManager(new LinearLayoutManager(PerfilUserActivity.this));
+
+                                LiveData<List<MyItemPiada>> piadas = vm.getPiadas();
+                                piadas.observe(PerfilUserActivity.this, new Observer<List<MyItemPiada>>() {
+                                    @Override
+                                    public void onChanged(List<MyItemPiada> piadas) {
+                                        PerfilUserAdapter perfilUserAdapter = new PerfilUserAdapter(PerfilUserActivity.this, piadas);
+                                        rvPerfilUser.setAdapter(perfilUserAdapter);
+                                    }
+                                });
+
                             }
                         });
 
@@ -135,22 +153,6 @@ public class PerfilUserActivity extends AppCompatActivity {
             }
         });
 
-        PerfilUserViewModel vm = new ViewModelProvider(PerfilUserActivity.this).get(PerfilUserViewModel.class);
-
-        vm.setUid(uid);
-
-        List<MyItemPiada> itens = vm.getItens();
-
-        RecyclerView rvPerfilUser = findViewById(R.id.rvPerfilUser);
-        rvPerfilUser.setLayoutManager(new LinearLayoutManager(this));
-
-        LiveData<List<MyItemPiada>> piadas = vm.getPiadas();
-        piadas.observe(PerfilUserActivity.this, new Observer<List<MyItemPiada>>() {
-            @Override
-            public void onChanged(List<MyItemPiada> piadas) {
-                PerfilUserAdapter perfilUserAdapter = new PerfilUserAdapter(PerfilUserActivity.this, piadas);
-                rvPerfilUser.setAdapter(perfilUserAdapter);
-            }
-        });
+        //View model estava aqui
     }
 }

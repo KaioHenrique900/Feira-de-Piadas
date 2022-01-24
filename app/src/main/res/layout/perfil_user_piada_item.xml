@@ -7,8 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="50px">
+        android:layout_height="wrap_content">
 
         <View
             android:id="@+id/view6"

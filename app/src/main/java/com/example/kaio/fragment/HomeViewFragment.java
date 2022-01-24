@@ -1,5 +1,6 @@
 package com.example.kaio.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Build;
@@ -18,15 +19,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kaio.Config;
+import com.example.kaio.HomeActivity;
 import com.example.kaio.HomeAdapter;
+import com.example.kaio.HttpRequest;
 import com.example.kaio.MyItemPiada;
 import com.example.kaio.PublicarPiadaActivity;
 import com.example.kaio.R;
 import com.example.kaio.model.HomeViewModel;
+import com.example.kaio.util.Util;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -128,20 +141,66 @@ public class  HomeViewFragment extends Fragment {
         itens.add(newPiada);
 
         homeAdapter.notifyItemInserted(itens.size()-1);*/
-        RecyclerView rvHome = getActivity().findViewById(R.id.rvHome);
-        rvHome.setHasFixedSize(true);
-        rvHome.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        homeViewModel.setUid(Config.getUid(getActivity()));
-        LiveData<List<MyItemPiada>> piadas = homeViewModel.getPiadas();
-        piadas.observe(getActivity(), new Observer<List<MyItemPiada>>() {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(new Runnable() {
             @Override
-            public void onChanged(List<MyItemPiada> piadas) {
-                HomeAdapter homeAdapter = new HomeAdapter(getContext(), piadas);
-                rvHome.setAdapter(homeAdapter);
+            public void run() {
+                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_data.php", "POST", "UTF-8");
+                httpRequest.addParam("email", Config.getLogin(getContext()));
+
+                try {
+                    InputStream is = httpRequest.execute();
+                    String result = Util.inputStream2String(is, "UTF-8");
+                    httpRequest.finish();
+
+                    JSONObject jsonObject = new JSONObject(result);
+                    final int success = jsonObject.getInt("success");
+                    if(success == 1) {
+                        final String webData = jsonObject.getString("data");
+
+                        final String id_user = jsonObject.getString("id_usuario");
+                        final String nome_user = jsonObject.getString("nome");
+                        final String email_user = jsonObject.getString("email");
+                        final String senha_user = jsonObject.getString("senha");
+                        final String data_nasc_user = jsonObject.getString("data_nasc");
+
+                        ((Activity)getContext()).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                RecyclerView rvHome = getActivity().findViewById(R.id.rvHome);
+                                rvHome.setHasFixedSize(true);
+                                rvHome.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+                                HomeViewModel homeViewModel = new ViewModelProvider(((HomeActivity)getActivity())).get(HomeViewModel.class);
+                                homeViewModel.setUid(id_user);
+                                LiveData<List<MyItemPiada>> piadas = homeViewModel.getPiadas();
+                                piadas.observe(getActivity(), new Observer<List<MyItemPiada>>() {
+                                    @Override
+                                    public void onChanged(List<MyItemPiada> piadas) {
+                                        HomeAdapter homeAdapter = new HomeAdapter(getContext(), piadas);
+                                        rvHome.setAdapter(homeAdapter);
+                                    }
+                                });
+                            }
+                        });
+
+                    }
+                    else {
+                        final String error = jsonObject.getString("error");
+                        ((Activity)getContext()).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getContext(), error, Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
+
 
 
     }
