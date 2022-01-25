@@ -4,4 +4,6 @@
     <dimen name="font_bib">13sp</dimen>
     <dimen name="b_icon_width">100dp</dimen>
     <dimen name="b_icon_height">100dp</dimen>
+    <dimen name="icon_len">45dp</dimen>
+    <dimen name="icon_len_padding">55dp</dimen>
 </resources>

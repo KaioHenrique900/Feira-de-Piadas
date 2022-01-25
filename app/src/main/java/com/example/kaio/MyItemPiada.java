@@ -11,5 +11,5 @@ public class MyItemPiada {
     public String position;
     public String data_publicacao;
     public int liked;
-    public int likes;
+    public String likes;
 }

@@ -163,13 +163,14 @@ public class Util {
     /**
      * Aplica uma escala em um arquivo de imagem já existente.
      * @param imageLocation caminho absoluto onde esta salva a imagem
+     * @param factor
      * @param scaleFactor fator de escala a ser aplicado na imagem. Se
      *                    quiser uma imagem com metade do tamanho, deve
      *                    usar o valor 2 como entrada. Uma imagem com um
      *                    quarto do tamanho deve usar 4 como entrada.
      * @throws FileNotFoundException se o arquivo nao existe
      */
-    public static void scaleImage(String imageLocation, int scaleFactor) throws FileNotFoundException {
+    public static void scaleImage(String imageLocation, int factor, int scaleFactor) throws FileNotFoundException {
         // Decode the image file into a Bitmap sized to fill the View
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
         bmOptions.inJustDecodeBounds = false;

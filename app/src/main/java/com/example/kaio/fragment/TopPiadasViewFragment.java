@@ -1,5 +1,6 @@
 package com.example.kaio.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -13,16 +14,27 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.kaio.Config;
+import com.example.kaio.HomeActivity;
 import com.example.kaio.HomeAdapter;
+import com.example.kaio.HttpRequest;
 import com.example.kaio.MyItemPiada;
 import com.example.kaio.R;
 import com.example.kaio.TopPiadasAdapter;
 import com.example.kaio.model.HomeViewModel;
 import com.example.kaio.model.TopPiadasViewModel;
+import com.example.kaio.util.Util;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,47 +74,14 @@ public class TopPiadasViewFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        /*
-        TopPiadasViewModel vm = new ViewModelProvider(this).get(TopPiadasViewModel.class);
-        List<MyItemPiada> itens = vm.getItens();
-
-        TopPiadasAdapter topPiadasAdapter = new TopPiadasAdapter(getActivity(), itens);
-
-        MyItemPiada newPiada = new MyItemPiada();
-        newPiada.user = "Kaio";
-        newPiada.position = "1.";
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca djakfjakfjakfjakfjakfajkfjakfjakfjakfjakfjakfajkfajfka";
-
-        itens.add(newPiada);
-
-        newPiada = new MyItemPiada();
-        newPiada.user = "Kaio";
-        newPiada.position = "2.";
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca fajfkajfkajfkajfkafjakfjafkjakajfkajakfjakafjakajfkajakj";
-
-        itens.add(newPiada);
-
-        newPiada = new MyItemPiada();
-        newPiada.user = "Kaio";
-        newPiada.position = "3.";
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca fajfkajfkajfkajfkafjakfjafkjakajfkajakfjakafjakajfkajakj";
-
-        itens.add(newPiada);
-
-        topPiadasAdapter.notifyItemInserted(itens.size()-1);
-        RecyclerView rvTopPiadas = getActivity().findViewById(R.id.rvTopPiadas);
-        rvTopPiadas.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rvTopPiadas.setAdapter(topPiadasAdapter);*/
 
         RecyclerView rvTopPiadas = getActivity().findViewById(R.id.rvTopPiadas);
         rvTopPiadas.setHasFixedSize(true);
         rvTopPiadas.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        TopPiadasViewModel topPiadasViewModel = new ViewModelProvider(this).get(TopPiadasViewModel.class);
+        TopPiadasViewModel topPiadasViewModel = new ViewModelProvider(((HomeActivity)getActivity())).get(TopPiadasViewModel.class);
         LiveData<List<MyItemPiada>> piadas = topPiadasViewModel.getPiadas();
+        topPiadasViewModel.setLogin(Config.getLogin(getContext()));
         piadas.observe(getActivity(), new Observer<List<MyItemPiada>>() {
             @Override
             public void onChanged(List<MyItemPiada> piadas) {
@@ -110,6 +89,8 @@ public class TopPiadasViewFragment extends Fragment {
                 rvTopPiadas.setAdapter(topPiadasAdapter);
             }
         });
+
+
 
 
     }

@@ -91,7 +91,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
                     context.startActivity(i);   //Tento executar a intenteção
                 }
                 catch (ActivityNotFoundException e){    //Caso não haja um App de e-mail, emito uma mensagem de erro
-                    Toast.makeText(context, "Não há nenhuma aplicação de e-mail instalada.", Toast.LENGTH_SHORT);
+                    Toast.makeText(context, "Não há nenhuma aplicação de envio de texto instalada.", Toast.LENGTH_SHORT);
                 }
             }
         });

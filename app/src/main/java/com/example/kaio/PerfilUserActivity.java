@@ -52,22 +52,12 @@ public class PerfilUserActivity extends AppCompatActivity {
             }
         });
 
-        ImageView imExit = findViewById(R.id.imExit);
-        imExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Config.setLogin(PerfilUserActivity.this, "");
-                Config.setPassword(PerfilUserActivity.this, "");
-                Intent i = new Intent(PerfilUserActivity.this, SignInActivity.class);
-                startActivity(i);
-            }
-        });
-
         Spinner sUserOptions = findViewById(R.id.spinnerUserOptions);
-        sUserOptions.setSelection(-1);
+        //sUserOptions.setSelection(-1);
         sUserOptions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                 if (position == 1){
                     Config.setLogin(PerfilUserActivity.this, "");
                     Config.setPassword(PerfilUserActivity.this, "");

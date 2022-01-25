@@ -26,6 +26,7 @@ public class TopPiadasViewModel extends ViewModel {
     List<MyItemPiada> itens = new ArrayList<>();
 
     MutableLiveData<List<MyItemPiada>> piadas;
+    private String login;
 
     public LiveData<List<MyItemPiada>> getPiadas(){
         if (piadas == null){
@@ -34,6 +35,11 @@ public class TopPiadasViewModel extends ViewModel {
         }
 
         return piadas;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+
     }
 
     public List<MyItemPiada> getItens() {
@@ -52,7 +58,8 @@ public class TopPiadasViewModel extends ViewModel {
 
                 List<MyItemPiada> piadasList = new ArrayList<>();
                 HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "top_piadas.php", "GET", "UTF-8");  //url deve ser alterada
-
+                httpRequest.addParam("email", login);
+                
                 try {
                     InputStream is = httpRequest.execute();   //IntputStrem é um fluxo de dados"
                     String result = Util.inputStream2String(is, "UTF-8");
@@ -73,7 +80,8 @@ public class TopPiadasViewModel extends ViewModel {
                             String descricao = jPiada.getString("descricao");
                             String data_publicacao = jPiada.getString("data_publicacao");
                             String nome_usuario = jPiada.getString("nome_usuario");
-                            int likes = jPiada.getInt("likes");
+                            String likes = jPiada.getString("likes");
+                            int liked = jPiada.getInt("curtida");
 
                             MyItemPiada piada = new MyItemPiada();
                             piada.piada = descricao;
@@ -83,6 +91,7 @@ public class TopPiadasViewModel extends ViewModel {
                             piada.data_publicacao = data_publicacao;
                             piada.user = nome_usuario;
                             piada.likes = likes;
+                            piada.liked = liked;
 
                             piadasList.add(piada);  //min:35
                         }
