@@ -15,6 +15,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
+        android:tint="@color/font_color_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
@@ -33,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Piadas de Corno"
+        android:textColor="@color/font_color_1"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

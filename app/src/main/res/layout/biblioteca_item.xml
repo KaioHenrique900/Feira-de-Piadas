@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="Categoria"
+        android:textColor="@color/font_color_1"
         android:textSize="@dimen/font_bib"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgCat"

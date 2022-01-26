@@ -12,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="0.8dp"
         android:layout_marginTop="8dp"
-        android:background="?attr/colorControlNormal"
+        android:background="@color/font_color_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLike" />
+        app:layout_constraintTop_toBottomOf="@+id/btnShareHome" />
 
     <TextView
         android:id="@+id/tvUserHome"
@@ -27,7 +27,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="SchruteFarmer"
+        android:textColor="@color/font_color_1"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,12 +49,18 @@
         android:id="@+id/tvTitleHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
         android:text="@string/piada_title"
+        android:textColor="@color/font_color_1"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUserHome" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/tvPiadaHome"
@@ -64,6 +72,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="@string/piada_text"
+        android:textColor="@color/font_color_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

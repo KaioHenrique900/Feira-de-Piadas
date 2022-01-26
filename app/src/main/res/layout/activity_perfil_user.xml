@@ -33,7 +33,9 @@
         android:layout_marginTop="16dp"
         android:background="@color/purple_200"
         android:text="Melhores Piadas"
+        android:textColor="@color/font_color_1"
         android:textSize="11sp"
+        app:backgroundTint="@color/purple_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnUPiadas"
@@ -47,7 +49,9 @@
         android:layout_marginLeft="8dp"
         android:background="@color/purple_200"
         android:text="Seguidores 4"
+        android:textColor="@color/font_color_1"
         android:textSize="9sp"
+        app:backgroundTint="@color/purple_200"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvPhotoPerfilUser" />
 
@@ -59,7 +63,9 @@
         android:layout_marginLeft="8dp"
         android:background="@color/purple_200"
         android:text="Seguindo 12"
+        android:textColor="@color/font_color_1"
         android:textSize="9sp"
+        app:backgroundTint="@color/purple_200"
         app:layout_constraintStart_toEndOf="@+id/btnSeguidores"
         app:layout_constraintTop_toBottomOf="@+id/imvPhotoPerfilUser" />
 
@@ -70,7 +76,9 @@
         android:layout_marginTop="16dp"
         android:background="@color/purple_200"
         android:text="Últimas Piadas"
+        android:textColor="@color/font_color_1"
         android:textSize="11sp"
+        app:backgroundTint="@color/purple_200"
         app:layout_constraintEnd_toStartOf="@+id/btnMPiadas"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,16 +92,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
+        android:tint="@color/font_color_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/btNav"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/botton_nav_menu" />
 
     <TextView
         android:id="@+id/tvUserPerfil"
@@ -103,7 +105,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="Kaio Henrique"
+        android:textColor="@color/font_color_1"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imvPhotoPerfilUser"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
@@ -120,7 +124,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btNav"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnUPiadas" />

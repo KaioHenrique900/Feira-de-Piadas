@@ -34,18 +34,15 @@ import java.util.concurrent.Executors;
 public class PerfilUserViewModel  extends ViewModel {
     List<MyItemPiada> itens = new ArrayList<>();
 
-    String uid;
+    String login;
 
     MutableLiveData<User> user;
 
     MutableLiveData<List<MyItemPiada>> piadas;  //mutable lvedata é um livedata que se pode alterar
 
-    /*public PerfilUserViewModel(String uid) {
-        this.uid = uid;
-    }*/
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public void setUser(MutableLiveData<User> user) {
@@ -79,7 +76,7 @@ public class PerfilUserViewModel  extends ViewModel {
             public void run() {
                 List<MyItemPiada> piadasList = new ArrayList<>();
                 HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_user_piadas.php", "POST", "UTF-8");  //url deve ser alterada
-                httpRequest.addParam("uid", uid);
+                httpRequest.addParam("email", login);
 
                 try {
                     InputStream is = httpRequest.execute();   //IntputStrem é um fluxo de dados"
@@ -100,6 +97,7 @@ public class PerfilUserViewModel  extends ViewModel {
                             String descricao = jPiada.getString("descricao");
                             String data_publicacao = jPiada.getString("data_publicacao");
                             String nome_usuario = jPiada.getString("nome_usuario");
+                            int liked = jPiada.getInt("curtida");
 
                             MyItemPiada piada = new MyItemPiada();
                             piada.piada = descricao;
@@ -107,6 +105,7 @@ public class PerfilUserViewModel  extends ViewModel {
                             piada.titulo = titulo;
                             piada.data_publicacao = data_publicacao;
                             piada.user = nome_usuario;
+                            piada.liked = liked;
 
                             piadasList.add(piada);  //min:35
                         }

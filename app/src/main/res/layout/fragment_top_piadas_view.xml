@@ -12,22 +12,11 @@
         android:background="@color/orange_padrao">
 
         <View
-            android:id="@+id/view3"
-            android:layout_width="match_parent"
-            android:layout_height="0.8dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnTopGeral" />
-
-        <View
             android:id="@+id/view10"
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
             android:layout_marginTop="16dp"
-            android:background="@android:color/white"
+            android:background="@color/font_color_1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,36 +28,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Top Piadas"
+            android:textColor="@color/font_color_1"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnTopGeral"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@color/purple_200"
-            android:text="Geral"
-            android:textSize="11sp"
-            app:layout_constraintEnd_toStartOf="@+id/btnTopCategorias"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view10" />
-
-        <Button
-            android:id="@+id/btnTopCategorias"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@color/purple_200"
-            android:text="Categorias"
-            android:textSize="11sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btnTopGeral"
-            app:layout_constraintTop_toBottomOf="@+id/view10" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTopPiadas"
@@ -77,7 +41,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view3" />
+            app:layout_constraintTop_toBottomOf="@+id/view10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

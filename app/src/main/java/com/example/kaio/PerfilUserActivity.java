@@ -108,7 +108,7 @@ public class PerfilUserActivity extends AppCompatActivity {
 
                                 PerfilUserViewModel vm = new ViewModelProvider(PerfilUserActivity.this).get(PerfilUserViewModel.class);
 
-                                vm.setUid(id_user);
+                                vm.setLogin(Config.getLogin(PerfilUserActivity.this));
 
                                 List<MyItemPiada> itens = vm.getItens();
 

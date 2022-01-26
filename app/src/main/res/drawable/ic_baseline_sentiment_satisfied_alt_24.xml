@@ -1,5 +1,5 @@
 <vector xmlns:tools="http://schemas.android.com/tools"
-    android:height="@dimen/icon_len" android:tint="?attr/colorControlNormal"
+    android:height="@dimen/icon_len" android:tint="@color/font_color_1"
     android:viewportHeight="24" android:viewportWidth="24"
     android:width="@dimen/icon_len" xmlns:android="http://schemas.android.com/apk/res/android"
     tools:ignore="VectorRaster">

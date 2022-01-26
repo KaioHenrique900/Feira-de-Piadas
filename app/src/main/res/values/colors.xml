@@ -8,4 +8,6 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="orange_padrao">#ffa726</color>
+    <color name="font_color_1">#fff3e0</color>
+    <color name="font_color_2">#ffe0b2</color>
 </resources>
