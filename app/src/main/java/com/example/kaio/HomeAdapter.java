@@ -62,6 +62,9 @@ public class HomeAdapter extends RecyclerView.Adapter {
         TextView tvTitle = v.findViewById(R.id.tvTitleHome);
         tvTitle.setText(myItem.titulo);
 
+        TextView countLikes = v.findViewById(R.id.countLikes2);
+        countLikes.setText(myItem.likes);
+
         ImageButton buttonLike = v.findViewById(R.id.btnLike);
         if (myItem.liked == 1){
             buttonLike.setImageResource(R.drawable.ic_twotone_sentiment_satisfied_alt__clicked_24);
