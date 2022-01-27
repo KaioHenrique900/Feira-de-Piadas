@@ -25,23 +25,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imgBtnVoltar1" />
 
     <Button
-        android:id="@+id/btnMPiadas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/purple_200"
-        android:text="Melhores Piadas"
-        android:textColor="@color/font_color_1"
-        android:textSize="11sp"
-        app:backgroundTint="@color/purple_200"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnUPiadas"
-        app:layout_constraintTop_toBottomOf="@+id/view5" />
-
-    <Button
         android:id="@+id/btnSeguidores"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
@@ -68,21 +51,6 @@
         app:backgroundTint="@color/purple_200"
         app:layout_constraintStart_toEndOf="@+id/btnSeguidores"
         app:layout_constraintTop_toBottomOf="@+id/imvPhotoPerfilUser" />
-
-    <Button
-        android:id="@+id/btnUPiadas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/purple_200"
-        android:text="Últimas Piadas"
-        android:textColor="@color/font_color_1"
-        android:textSize="11sp"
-        app:backgroundTint="@color/purple_200"
-        app:layout_constraintEnd_toStartOf="@+id/btnMPiadas"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view5" />
 
     <ImageButton
         android:id="@+id/imgBtnVoltar1"
@@ -123,11 +91,10 @@
         android:id="@+id/rvPerfilUser"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnUPiadas" />
+        app:layout_constraintTop_toBottomOf="@+id/view5" />
 
     <Spinner
         android:id="@+id/spinnerUserOptions"

@@ -39,18 +39,20 @@ public class PerfilActivity extends AppCompatActivity {
         PerfilUserAdapter perfilUserAdapter = new PerfilUserAdapter(this, itens);
 
         MyItemPiada newPiada = new MyItemPiada();
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca djakfjakfjakfjakfjakfajkfjakfjakfjakfjakfjakfajkfajfka";
+        newPiada.titulo = "Pedreiro Japonês";
+        newPiada.piada = "Como se chama pedreiro no Japão\nTaca massa no muro";
 
         itens.add(newPiada);
 
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca fajfkajfkajfkajfkafjakfjafkjakajfkajakfjakafjakajfkajakj";
+        newPiada = new MyItemPiada();
+        newPiada.titulo = "Buuu!";
+        newPiada.piada = "Por que é proibido assustar as pesoas na Hungria?\nPorque o 'Buuu!' dá peste";
 
         itens.add(newPiada);
 
-        newPiada.titulo = "Piada Titulo";
-        newPiada.piada = "Uma Piadoca fajfkajfkajfkajfkafjakfjafkjakajfkajakfjakafjakajfkajakj";
+        newPiada = new MyItemPiada();
+        newPiada.titulo = "Xadrez Ianque";
+        newPiada.piada = "Por que não dá pra jogar xadrez nos EUA?\nPorque estão faltando duas torres";
 
         itens.add(newPiada);
 

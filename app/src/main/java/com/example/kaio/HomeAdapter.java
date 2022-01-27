@@ -125,9 +125,20 @@ public class HomeAdapter extends RecyclerView.Adapter {
                                 ((Activity)context).runOnUiThread(new Runnable() {
                                      @Override
                                      public void run() {
+                                         int likes;
                                          if (like == 1) {
+                                             likes = Integer.parseInt(myItem.likes);
+                                             likes+=1;
+                                             myItem.likes = Integer.toString(likes);
+                                             countLikes.setText(myItem.likes);
+
                                              finalButtonLike.setImageResource(R.drawable.ic_twotone_sentiment_satisfied_alt__clicked_24);
                                          } else {
+                                             likes = Integer.parseInt(myItem.likes);
+                                             likes-=1;
+                                             myItem.likes = Integer.toString(likes);
+                                             countLikes.setText(myItem.likes);
+
                                              finalButtonLike.setImageResource(R.drawable.ic_baseline_sentiment_satisfied_alt_24);
 
                                          }

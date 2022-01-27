@@ -98,6 +98,7 @@ public class PerfilUserViewModel  extends ViewModel {
                             String data_publicacao = jPiada.getString("data_publicacao");
                             String nome_usuario = jPiada.getString("nome_usuario");
                             int liked = jPiada.getInt("curtida");
+                            String likes = jPiada.getString("likes");
 
                             MyItemPiada piada = new MyItemPiada();
                             piada.piada = descricao;
@@ -106,6 +107,7 @@ public class PerfilUserViewModel  extends ViewModel {
                             piada.data_publicacao = data_publicacao;
                             piada.user = nome_usuario;
                             piada.liked = liked;
+                            piada.likes = likes;
 
                             piadasList.add(piada);  //min:35
                         }

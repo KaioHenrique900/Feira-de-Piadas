@@ -57,6 +57,9 @@ public class PerfilUserAdapter extends RecyclerView.Adapter {
         TextView tvTitle = v.findViewById(R.id.tvTitlePerfilUser);
         tvTitle.setText(myItem.titulo);
 
+        TextView countLikes = v.findViewById(R.id.countLikes3);
+        countLikes.setText(myItem.likes);
+
         ImageButton buttonLike = v.findViewById(R.id.btnLikePerfil);
         if (myItem.liked == 1){
             buttonLike.setImageResource(R.drawable.ic_twotone_sentiment_satisfied_alt__clicked_24);
@@ -106,9 +109,20 @@ public class PerfilUserAdapter extends RecyclerView.Adapter {
                                 ((Activity)context).runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
+                                        int likes;
                                         if (like == 1) {
+                                            likes = Integer.parseInt(myItem.likes);
+                                            likes+=1;
+                                            myItem.likes = Integer.toString(likes);
+                                            countLikes.setText(myItem.likes);
+
                                             finalButtonLike.setImageResource(R.drawable.ic_twotone_sentiment_satisfied_alt__clicked_24);
                                         } else {
+                                            likes = Integer.parseInt(myItem.likes);
+                                            likes-=1;
+                                            myItem.likes = Integer.toString(likes);
+                                            countLikes.setText(myItem.likes);
+
                                             finalButtonLike.setImageResource(R.drawable.ic_baseline_sentiment_satisfied_alt_24);
 
                                         }
