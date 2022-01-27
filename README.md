@@ -12,3 +12,4 @@ Lições Aprendidas (Kaio): https://docs.google.com/document/d/1B5qR-HJbE2_GjYiu
 Plano de Testes: https://docs.google.com/spreadsheets/d/1Zq6arHTRYTD1ITmazdR9-hD3D0QWPoo7Tbwv9OONBrw/edit?usp=sharing <br>
 Sistema do Heroku: https://feira-de-piadas.herokuapp.com/ <br>
 Slides da Apresentação Final (esboço): https://docs.google.com/presentation/d/18vJeUOVEYCIZ9N2J_Uvx08LiweYIJzmewwCLjm8BKL8/edit?usp=sharing <br>
+Link para download do app: https://github.com/KaioHenrique900/Feira-de-Piadas/blob/master/feira_de_piadas.apk <br>
